@@ -1,0 +1,11 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "SAP Object Node Type ZABAP_TRAVEL_05",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "name": "ZABAP_TRAVEL_05",
+  "sapObjectType": "ZABAP_TRAVEL_05",
+  "rootNode": true
+}

@@ -1,0 +1,66 @@
+managed implementation in class ZBP_R_MANTENIM_05 unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_MANTENIM_05 alias ZrMantenim05
+persistent table ZMANTENIM_05
+extensible
+draft table ZMANTENIM_05_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+early numbering
+{
+  field ( mandatory : create )
+   Descripcion;
+
+  field ( readonly )
+   CreatedBy,
+   CreateAt,
+   LastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt,
+   FechaSolicitud,
+   FechaFinalizacion,
+   IdMantenim;
+
+   determination InicializarMantenimiento on modify
+   {
+        create;
+   }
+
+//  field ( readonly : update )
+////   FechaProgramada,
+
+  create;
+  update;
+  delete;
+
+  action FinalizarMantenimiento result [1] $self;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZMANTENIM_05 corresponding extensible
+  {
+    IdMantenim = ID_MANTENIM;
+    Equipo = EQUIPO;
+    Descripcion = DESCRIPCION;
+    TipoMantenim = TIPO_MANTENIM;
+    Prioridad = PRIORIDAD;
+    Estado = ESTADO;
+    Tecnico = TECNICO;
+    FechaSolicitud = FECHA_SOLICITUD;
+    FechaProgramada = FECHA_PROGRAMADA;
+    FechaFinalizacion = FECHA_FINALIZACION;
+    CreatedBy = CREATED_BY;
+    CreateAt = CREATE_AT;
+    LastChangedBy = LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}

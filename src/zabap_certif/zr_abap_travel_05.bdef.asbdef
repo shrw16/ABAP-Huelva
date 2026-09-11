@@ -1,0 +1,50 @@
+managed implementation in class ZBP_R_ABAP_TRAVEL_05 unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_ABAP_TRAVEL_05 alias ZrAbapTravel05
+persistent table ZABAP_TRAVEL_05
+extensible
+draft table ZABAP_TRVEL_05_D
+etag master LocalLastChangedAt
+lock master total etag LocalLastChangedAt
+authorization master( global )
+{
+  field ( mandatory : create )
+   TravelID;
+
+  field ( readonly )
+   CreatedBy,
+   CreatedAt,
+   LastChangedBy,
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+   TravelID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZABAP_TRAVEL_05 corresponding extensible
+  {
+    TravelID = TRAVEL_ID;
+    AgencyID = AGENCY_ID;
+    CustomerID = CUSTOMER_ID;
+    BeginDate = BEGIN_DATE;
+    EndDate = END_DATE;
+    Status = STATUS;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    LastChangedBy = LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+}

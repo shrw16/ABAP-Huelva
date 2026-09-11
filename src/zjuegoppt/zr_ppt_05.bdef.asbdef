@@ -1,0 +1,55 @@
+managed implementation in class ZBP_R_PPT_05 unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_PPT_05 alias ZrPpt05
+persistent table ZPPT_05
+extensible
+draft table ZPPT_05_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+early numbering
+{
+  field ( mandatory : create )
+   IdPartida,
+   JugadaJ1,
+   JugadaJ2;
+
+  field ( readonly )
+   CreatedBy,
+   CreatedAt,
+   LastChangedBy,
+   LastChangedAt,
+   LocalLastChangedAt,
+   Resultado;
+
+  field ( readonly : update )
+   IdPartida;
+
+   action Jugar result [1] $self;
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZPPT_05 corresponding extensible
+  {
+    IdPartida = ID_PARTIDA;
+    JugadaJ1 = JUGADA_J1;
+    JugadaJ2 = JUGADA_J2;
+    Resultado = RESULTADO;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    LastChangedBy = LAST_CHANGED_BY;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+}

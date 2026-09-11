@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_TPENALTIS_05'
+@MappingRole: true
+define role ZC_TPENALTIS_05 {
+  grant select on ZC_TPENALTIS_05
+  where INHERITING CONDITIONS FROM ENTITY ZR_TPENALTIS_05 REPLACING { ROOT WITH _BaseEntity };
+}

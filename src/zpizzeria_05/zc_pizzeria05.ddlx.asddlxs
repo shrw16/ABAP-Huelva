@@ -1,0 +1,80 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Pedido',
+    typeNamePlural: 'Pedidos',
+    title: { type: #STANDARD, value: 'OrderId' },
+    description: { value: 'NombreCliente' }
+  }
+}
+annotate view ZI_PIZZERIA_05 with
+{
+  @UI.facet: [
+    {
+      id: 'Pedido',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Datos del pedido',
+      position: 10
+    }
+  ]
+
+  @UI: {
+    lineItem: [{ position: 10 }],
+    identification: [{ position: 10 }]
+  }
+  @EndUserText.label: 'Nº Pedido'
+  OrderId;
+
+  @UI: {
+    lineItem: [{ position: 20 }],
+    identification: [{ position: 20 }]
+  }
+  @EndUserText.label: 'Cliente'
+  NombreCliente;
+
+  @UI: {
+    lineItem: [{ position: 30 }],
+    identification: [{ position: 30 }]
+  }
+  @EndUserText.label: 'Fecha del pedido'
+  FechaPedido;
+
+  @UI: {
+    lineItem: [{ position: 40 }],
+    identification: [{ position: 40 }]
+  }
+  @EndUserText.label: 'Estado Pedido'
+  Estado;
+
+  @UI: {
+    lineItem: [{ position: 50 }],
+    identification: [{ position: 50 }]
+  }
+  @EndUserText.label: 'Importe Total'
+  PrecioTotal;
+
+//  @UI: {
+//    identification: [{ position: 60 }]
+//  }
+//  @EndUserText.label: 'Creado por'
+//  CreatedBy;
+//
+//  @UI: {
+//    identification: [{ position: 70 }]
+//  }
+//  @EndUserText.label: 'Fecha de creación'
+//  CreatedAt;
+//
+//  @UI: {
+//    identification: [{ position: 80 }]
+//  }
+//  @EndUserText.label: 'Modificado por'
+//  LastChangedBy;
+//
+//  @UI: {
+//    identification: [{ position: 90 }]
+//  }
+//  @EndUserText.label: 'Fecha de modificación'
+//  LastChangedAt;
+}

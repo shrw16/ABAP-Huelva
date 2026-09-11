@@ -1,0 +1,240 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'Title'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'IdIncidence'
+@UI.presentationVariant: [{
+  sortOrder: [
+    {
+      by: 'Priority',
+      direction: #ASC
+    },
+    {
+      by: 'LimitDate',
+      direction: #ASC
+    }
+  ]
+}]
+annotate view ZC_TINCIDENCIAS_05 with
+{
+  @UI.facet: [ {
+    label: 'General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  }, 
+  {  label: 'Dates',
+    id: 'Dates',
+    purpose: #STANDARD,
+    position: 20 ,
+    type: #FIELDGROUP_REFERENCE ,
+    targetQualifier: 'Dates'
+  } ]
+  @EndUserText.label: 'Id Incidence'
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'Id Incidence'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'Id Incidence'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  IdIncidence;
+  
+  @EndUserText.label: 'Title'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'Title' 
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label: 'Title'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  Title;
+  
+  @EndUserText.label: 'Description'
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'Description' 
+  } ]
+  @UI.lineItem: [ {
+    position: 30 , 
+    label: 'Description'
+  } ]
+//  @UI.selectionField: [ {
+//    position: 30 
+//  } ]
+  Description;
+  
+  @UI.identification: [ {
+    position: 40 
+  } ]
+  @UI.lineItem: [ {
+    position: 40 
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  Category;
+  
+  @UI.identification: [ {
+    position: 50 
+  } ]
+  @UI.lineItem: [ {
+    position: 50 
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  Priority;
+  
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  @UI.lineItem: [ {
+    position: 60 
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  Status;
+  
+  @EndUserText.label: 'Responsible'
+  @UI.identification: [ {
+    position: 70 , 
+    label: 'Responsible'
+  } ]
+  @UI.lineItem: [ {
+    position: 70 , 
+    label: 'Responsible'
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  Responsible;
+  
+  @EndUserText.label: 'Leave Date'
+  @UI.identification: [ {
+    position: 80 , 
+    label: 'Leave Date'
+  } ]
+//  @UI.lineItem: [ {
+//    position: 80 , 
+//    label: 'Leave Date'
+//  } ]
+  @UI.selectionField: [ {
+    position: 80 
+  } ]
+    @UI.fieldGroup: [{
+  position: 10 ,
+  qualifier: 'Dates' }]
+  LeaveDate;
+  
+  @EndUserText.label: 'Limit Date'
+  @UI.identification: [ {
+    position: 90 , 
+    label: 'Limit Date'
+  } ]
+//  @UI.lineItem: [ {
+//    position: 90 , 
+//    label: 'Limit Date'
+//  } ]
+//  @UI.selectionField: [ {
+//    position: 90 
+//  } ]
+    @UI.fieldGroup: [{
+  position: 10 ,
+  qualifier: 'Dates' }]
+  LimitDate;
+  
+  @EndUserText.label: 'Discharge Date'
+  @UI.identification: [ {
+    position: 100 , 
+    label: 'Discharge Date'
+  } ]
+//  @UI.lineItem: [ {
+//    position: 100 , 
+//    label: 'Discharge Date'
+//  } ]
+//  @UI.selectionField: [ {
+//    position: 100 
+//  } ]
+  @UI.fieldGroup: [{
+  position: 10 ,
+  qualifier: 'Dates' }]
+  DischargeDate;
+  
+  @UI.identification: [ {
+    position: 110 
+  } ]
+//  @UI.lineItem: [ {
+//    position: 110 
+//  } ]
+//  @UI.selectionField: [ {
+//    position: 110 
+//  } ]
+    @UI.fieldGroup: [{
+  position: 10 ,
+  qualifier: 'Dates' }]
+  CreatedAt;
+  
+  @UI.identification: [ {
+    position: 120 
+  } ]
+//  @UI.lineItem: [ {
+//    position: 120 
+//  } ]
+//  @UI.selectionField: [ {
+//    position: 120 
+//  } ]
+  CreatedBy;
+  
+  @UI.identification: [ {
+    position: 130 
+  } ]
+//  @UI.lineItem: [ {
+//    position: 130 
+//  } ]
+//  @UI.selectionField: [ {
+//    position: 130 
+//  } ]
+    @UI.fieldGroup: [{
+  position: 10 ,
+  qualifier: 'Dates' }]
+  LastChangedAt;
+  
+  @UI.identification: [ {
+    position: 140 
+  } ]
+//  @UI.lineItem: [ {
+//    position: 140 
+//  } ]
+//  @UI.selectionField: [ {
+//    position: 140 
+//  } ]
+    @UI.fieldGroup: [{
+  position: 10 ,
+  qualifier: 'Dates' }]
+  LocalLastChangedAt;
+  
+  @UI.identification: [ {
+    position: 150 
+  } ]
+//  @UI.lineItem: [ {
+//    position: 150 
+//  } ]
+//  @UI.selectionField: [ {
+//    position: 150 
+//  } ]
+    @UI.fieldGroup: [{
+  position: 10 ,
+  qualifier: 'Dates' }]
+  LastChangedBy;
+}

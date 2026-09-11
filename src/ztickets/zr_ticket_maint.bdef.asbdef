@@ -1,0 +1,69 @@
+managed implementation in class ZBP_R_TICKET_MAINT unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_TICKET_MAINT alias ZrTicketMaint
+persistent table ZTICKET_MAINT
+extensible
+draft table ZTICKET_MAINT_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+early numbering
+{
+
+  field ( mandatory : create )
+  equipment,
+  description,
+  priority;
+
+  field ( readonly )
+   TicketUUID,
+   TicketID,
+   CreatedBy,
+   CreateAt,
+   Duedate,
+   LastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+
+
+// IMPLEMENTACIÓN MÁS TARDE:
+
+//  determination calc_due_date on modify { field priority; }
+//
+//  validation validate_close on save { field status; }
+//
+//  action ( features : instance ) close_ticket result [1] $self;
+//  action set_in_progress result [1] $self;
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZTICKET_MAINT corresponding extensible
+  {
+    TicketUUID = TICKET_UUID;
+    TicketID = TICKET_ID;
+    Equipment = EQUIPMENT;
+    Description = DESCRIPTION;
+    Priority = PRIORITY;
+    Status = STATUS;
+    DueDate = DUE_DATE;
+    ResolutionDate = RESOLUTION_DATE;
+    ResolutionNotes = RESOLUTION_NOTES;
+    CreatedBy = CREATED_BY;
+    CreateAt = CREATE_AT;
+    LastChangedBy = LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}

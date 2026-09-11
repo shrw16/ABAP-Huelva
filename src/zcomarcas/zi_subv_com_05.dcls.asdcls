@@ -1,0 +1,17 @@
+@EndUserText.label: 'Acces Control ZCOM_05'
+@MappingRole: true
+define role ZI_SUBV_COM_05 {
+    grant
+        select
+            on
+                ZI_SUBV_AGR_05
+                    where
+                        ( Comarca ) = 
+                        aspect pfcg_auth(  
+                        ZAUTH_COM5,
+                        ZCOM_05,
+                        ACTVT = '03'
+                        );
+}
+
+            

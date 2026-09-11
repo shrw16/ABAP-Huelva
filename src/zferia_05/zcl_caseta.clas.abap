@@ -1,18 +1,13 @@
-CLASS zcl_caseta DEFINITION
-  PUBLIC
-  INHERITING FROM zcl_atraccion_05
-  FINAL
-  CREATE PUBLIC .
+class ZCL_CASETA definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-  METHODS: pedir_rebujito.
-
-  PROTECTED SECTION .
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
-CLASS zcl_caseta IMPLEMENTATION.
-METHOD pedir_rebujito.
-"out->write = ( 'Rebujito servido' ).
-ENDMETHOD.
+
+
+CLASS ZCL_CASETA IMPLEMENTATION.
 ENDCLASS.

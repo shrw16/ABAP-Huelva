@@ -1,0 +1,12 @@
+@EndUserText.label: 'Acces Control for LRN/AGCY'
+@MappingRole: true
+define role Z05_AGENCY {
+
+  grant select on zr_abap_travel_05
+    where
+      ( agencyid ) = aspect pfcg_auth(
+        /LRN/AGCY,
+        /LRN/AGCY,
+        ACTVT = '03'
+      );
+}
