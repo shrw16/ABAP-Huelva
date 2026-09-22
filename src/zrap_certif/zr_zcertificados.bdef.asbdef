@@ -1,0 +1,78 @@
+managed implementation in class ZBP_R_ZCERTIFICADOS unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_ZCERTIFICADOS alias ZrZcertificados
+persistent table ZZCERTIF
+extensible
+draft table ZZCERTIFICADOS_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+early numbering
+{
+
+  field ( mandatory : create )
+   NombreEmp,
+   ApellidosEmp,
+   AreaProf,
+   NombreCert,
+   PosicionEmp,
+   OrgEmisor,
+   FechaExp,
+   FechaCad;
+
+  field ( readonly )
+  IdCert,
+  IdEmp,
+   CreatedAt,
+   CreatedBy,
+   LastChangedAt,
+   LastChangedBy,
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+  NombreEmp,
+  ApellidosEmp,
+  NombreCert,
+  OrgEmisor,
+  FechaExp,
+  FechaCad;
+
+//   IdCert,
+//   IdEmp;
+
+ static action UploadFlatFile deep parameter ZBS_S_SAPopupFlatFile;
+
+  create;
+  update;
+  delete;
+
+  determination setUUID on modify { create; }
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZZCERTIF corresponding extensible
+  {
+    IdCert = ID_CERT;
+    IdEmp = ID_EMP;
+    NombreEmp = NOMBRE_EMP;
+    ApellidosEmp = APELLIDOS_EMP;
+    NombreCert = NOMBRE_CERT;
+    OrgEmisor = ORG_EMISOR;
+    FechaExp = FECHA_EXP;
+    FechaCad = FECHA_CAD;
+    PosicionEmp = POSICION_EMP;
+    AreaProf = AREA_PROF;
+    CreatedAt = CREATED_AT;
+    CreatedBy = CREATED_BY;
+    LastChangedAt = LAST_CHANGED_AT;
+    LastChangedBy = LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+}
