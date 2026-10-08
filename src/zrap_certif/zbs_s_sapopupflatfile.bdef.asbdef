@@ -7,4 +7,4 @@ define behavior for ZBS_S_SAPopupFlatFile
   association _Files with hierarchy;
 }
 
-// Solo añadir with hierarchy
+// Solo añadimos with hierarchy

@@ -13,6 +13,10 @@ use etag
 
   use action UploadFlatFile;
 
+  use action SendMail;
+
+  use action Renovar;
+
   use action Edit;
   use action Activate;
   use action Discard;

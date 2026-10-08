@@ -23,8 +23,8 @@ early numbering
    FechaCad;
 
   field ( readonly )
-  IdCert,
-  IdEmp,
+   IdCert,
+   IdEmp,
    CreatedAt,
    CreatedBy,
    LastChangedAt,
@@ -43,6 +43,10 @@ early numbering
 //   IdEmp;
 
  static action UploadFlatFile deep parameter ZBS_S_SAPopupFlatFile;
+
+ action SendMail parameter ZA_MAILSENDER;
+
+ action Renovar parameter ZA_RENOVAR_CERT result [1] $self;
 
   create;
   update;
